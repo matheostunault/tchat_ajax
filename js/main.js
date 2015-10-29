@@ -30,6 +30,7 @@
 
 	//variables
 	var messages		= '';
+	var connected_users	= ['teqt1','test2'];
 
 	function callKwickAPi(url, callback) {
 		var request = $.ajax({
@@ -53,6 +54,7 @@
 
 		//initialisation 
 		initialize: function() {
+			
 
 			$inscription.on('submit', function(evt) {
 				evt.preventDefault();
@@ -76,15 +78,6 @@
 				evt.preventDefault();
 				app.sendMessage(localStorage.token, localStorage.id, encodeURI($msg.val()));
 			});
-
-			setInterval(function(){
-				app.allMessages(localStorage.token);		
-			},400);
-
-			setInterval(function(){
-				app.allUsers(localStorage.token);
-			},400);
-			
 		},
 
 		/**
@@ -95,14 +88,21 @@
 		 */
 		signIn: function(user_name, password) {
 			callKwickAPi('signup/' + user_name  + '/' + password, function(err, data) {
-				if (err) 
-					return alert('ERREUR');
+				if (data.result.status == "failure") {
+					$inscription.prepend('<p class="erreur">identifiant ou mot de passe non disponible<p>')
 
-				localStorage.setItem("token", data.result.token);
-				localStorage.setItem("id", data.result.id);
+					$('.erreur').css({
+						'color': 'red',
+						'text-align': 'center'
+					});
+				}
 
-				document.location.href = 'tchat.html';
+				if (data.result.status == "done") {
+					localStorage.setItem("token", data.result.token);
+					localStorage.setItem("id", data.result.id);
 
+					document.location.href = 'tchat.html';
+				}
 			})
 		},
 
@@ -114,14 +114,21 @@
 		 */
 		logIn: function(user_name, password) {
 			callKwickAPi('login/' + user_name  + '/' + password, function(err, data) {
-				if (err) 
-					return alert('ERREUR');
+				if (data.result.status == "failure") {
+					$connection.append('<p class="erreur">identifiant ou mot de passe non disponible<p>')
+
+					$('.erreur').css({
+						'color': 'red',
+						'text-align': 'center'
+					});
+				}
 				
-				if (data.result.status !== "failure") 
+				if (data.result.status == "done") {
 					localStorage.setItem("token", data.result.token);
 					localStorage.setItem("id", data.result.id);
 
 					document.location.href = 'tchat.html';
+				}
 
 			})
 		},
@@ -136,8 +143,11 @@
 			callKwickAPi('logout/' + token  + '/' + user_id, function(err, data) {
 				if (err) 
 					return alert('ERREUR');
-				
-					document.location.href = 'index.html';
+					
+				localStorage.id 	= '' ;
+				localStorage.token 	= '' ;
+			
+				document.location.href = 'index.html';
 
 			})
 		},
@@ -194,13 +204,19 @@
 				if (err) 
 					return alert('ERREUR');
 				
-
 				$users.empty();
 
-				for (var i = 0; i < data.result.user.length; i++) {
-					$users.append('<li>' + data.result.user[i]  + '</li>');
+				for (var i = 0; i < data.result.user.length; i++) {	
+					connected_users.push(data.result.user[i]);
 				}
-				$users.prepend('<h2>Utilisateurs connectés :</h2>')
+
+				for (var i = 0; i < connected_users.length; i++) {
+					$users.append(connected_users[i] + '</br>');
+				};
+
+				$users.prepend('<h2>Utilisateurs :</h2>')
+				$users.append()
+
 			})
 		}
 	}

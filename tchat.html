@@ -37,7 +37,7 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
           <form id="deconnection" class="navbar-form navbar-right" role="form">
-            <button id="logout" type="submit" class="btn btn-success">logout</button>
+            <button id="logout" type="submit" class="btn btn-success">Deconnection</button>
           </form>
           </div>
         </div>
@@ -66,8 +66,16 @@
 
         <script src="js/main.js"></script>
         <script type="text/javascript">
+          if (localStorage.id == "") {
+            document.location.href = 'index.html';
+          };
           app.initialize();
           app.afficheUser();
+          setInterval(function(){
+            app.allMessages(localStorage.token);   
+          },400);
+          app.allUsers(localStorage.token); 
+
         </script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

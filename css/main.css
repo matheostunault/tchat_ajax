@@ -4,7 +4,10 @@
    Author's custom styles
    ========================================================================== */
 
-
+h1 {
+	margin-top: 5px;
+	text-align: center;
+}
 .form-horizontal h2 {
 	text-align: center;
 }
