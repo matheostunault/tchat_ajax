@@ -8,10 +8,6 @@
 .form-horizontal h2 {
 	text-align: center;
 }
-
-#user_name h3 {
-	margin: 5px 0 10px 15px;
-}
 .users{
 	font-weight: bold;
 }
@@ -22,19 +18,24 @@
 	word-break:break-all;
 }
 #wrapper{
+	margin-top: 20px;
+	padding-right: 55px;
+	border-right:1px solid #eee;
 	float: left;
 	width: 60%;
 }
 #users{
+	margin-top: 20px;
 	list-style-type: none;
-	margin-top: 50px;
 	float: right;
 	width: 35%;
 }
-.msg_content {
+#users{
+	padding-left: 0;
 }
 .message {
-
 	border-bottom: 1px solid #eee;
-
+}
+#nav {
+	margin-bottom: 100px;
 }

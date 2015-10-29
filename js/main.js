@@ -147,13 +147,13 @@
 		 * @return {string} return un objet html sous forme de string
 		 */
 		afficheUser: function() {
-			$user_name.append("<h3>" + localStorage.name + "</h3>");
+			$user_name.append("<h3> Utilisateur : " + localStorage.name + "</h3>");
 		},
 
 		/**
 		 * sendMessage permet d'envoyer un message
-		 * @param  {string} token   le token délivré à lu'tilisateur a la création de sons compte
-		 * @param  {string} user_id l'id délivré à lu'tilisateur a la création de sons compte
+		 * @param  {string} token   le token délivré à l'utilisateur a la création de sons compte
+		 * @param  {string} user_id l'id délivré à l'utilisateur a la création de sons compte
 		 * @param  {string} msg     le message a recuperer
 		 * @return {string}         le message de l'utilisateur dans le tchat
 		 */
@@ -168,7 +168,7 @@
 
 		/**
 		 * allMessage affichage des messages envoyé
-		 * @param  {string} token le token délivré à lu'tilisateur a la création de sons compte
+		 * @param  {string} token le token délivré à l'utilisateur a la création de sons compte
 		 * @return {string}       renvois les message dan sla page html
 		 */
 		allMessages: function(token) {
