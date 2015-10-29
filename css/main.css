@@ -1,0 +1,40 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+.form-horizontal h2 {
+	text-align: center;
+}
+
+#user_name h3 {
+	margin: 5px 0 10px 15px;
+}
+.users{
+	font-weight: bold;
+}
+#flux_msg{
+	padding: 5px;
+	height: 500px;
+	overflow-x: hidden; 
+	word-break:break-all;
+}
+#wrapper{
+	float: left;
+	width: 60%;
+}
+#users{
+	list-style-type: none;
+	margin-top: 50px;
+	float: right;
+	width: 35%;
+}
+.msg_content {
+}
+.message {
+
+	border-bottom: 1px solid #eee;
+
+}

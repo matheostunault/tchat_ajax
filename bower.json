@@ -1,0 +1,21 @@
+{
+  "name": "chat_sans_nodes_modules",
+  "authors": [
+    "Mathéo Stunault <stunaultmatheo@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [
+    "es6",
+    "node"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
