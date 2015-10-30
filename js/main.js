@@ -89,6 +89,8 @@
 		signIn: function(user_name, password) {
 			callKwickAPi('signup/' + user_name  + '/' + password, function(err, data) {
 				if (data.result.status == "failure") {
+					$('.erreur').empty();
+
 					$inscription.prepend('<p class="erreur">identifiant ou mot de passe non disponible<p>')
 
 					$('.erreur').css({
@@ -115,7 +117,9 @@
 		logIn: function(user_name, password) {
 			callKwickAPi('login/' + user_name  + '/' + password, function(err, data) {
 				if (data.result.status == "failure") {
-					$connection.append('<p class="erreur">identifiant ou mot de passe non disponible<p>')
+					$('.erreur').empty();
+
+					$connection.prepend('<p class="erreur">identifiant ou mot de passe non disponible<p>')
 
 					$('.erreur').css({
 						'color': 'red',
@@ -188,7 +192,7 @@
 				
 				$flux_msg.empty();
 
-				for (var i = data.result.talk.length - 50; i < data.result.talk.length; i++) {
+				for (var i = data.result.talk.length - 30; i < data.result.talk.length; i++) {
 						$flux_msg.prepend('<p class="message"><p class="users">' + data.result.talk[i].user_name  + ' : </p><p class="msg_content">' + data.result.talk[i].content + '<p></p></br>');
 				}
 
