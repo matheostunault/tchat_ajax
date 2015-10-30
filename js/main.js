@@ -76,7 +76,7 @@
 
 			$user_msg.on('submit', function(evt) {
 				evt.preventDefault();
-				app.sendMessage(localStorage.token, localStorage.id, encodeURI($msg.val()));
+				app.sendMessage(localStorage.token, localStorage.id, encodeURIComponent($msg.val()));
 			});
 		},
 
@@ -188,9 +188,10 @@
 				
 				$flux_msg.empty();
 
-				for (var i = 0; i < data.result.talk.length; i++) {
-					$flux_msg.prepend('<p class="message"><p class="users">' + data.result.talk[i].user_name  + ' : </p><p class="msg_content">' + data.result.talk[i].content + '<p></p></br>');
+				for (var i = data.result.talk.length - 50; i < data.result.talk.length; i++) {
+						$flux_msg.prepend('<p class="message"><p class="users">' + data.result.talk[i].user_name  + ' : </p><p class="msg_content">' + data.result.talk[i].content + '<p></p></br>');
 				}
+
 			})
 		},
 
@@ -206,16 +207,13 @@
 				
 				$users.empty();
 
-				for (var i = 0; i < data.result.user.length; i++) {	
-					connected_users.push(data.result.user[i]);
-				}
 
-				for (var i = 0; i < connected_users.length; i++) {
-					$users.append(connected_users[i] + '</br>');
+				for (var i = 0; i < data.result.user.length; i++) {
+					$users.append('<li>' + data.result.user[i] + '</li>');
 				};
 
 				$users.prepend('<h2>Utilisateurs :</h2>')
-				$users.append()
+			
 
 			})
 		}

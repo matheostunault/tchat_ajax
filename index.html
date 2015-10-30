@@ -33,17 +33,7 @@
         <div class="navbar-header">
           <a class="navbar-brand" href="#">Mini Tchat</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form id="connection" class="navbar-form navbar-right" role="form">
-            <div class="form-group">
-              <input id="cnct_log" type="text" placeholder="Identifiant" class="form-control">
-            </div>
-            <div class="form-group">
-              <input id="cnct_pswrd" type="password" placeholder="Mot de passe" class="form-control">
-            </div>
-            <button id="log_in" type="submit" class="btn btn-success">Connection</button>
-          </form>
-        </div>
+        
       </div>
     </nav>
 
@@ -54,25 +44,48 @@
     </div>
 
     <div class="container">
-      <form class="form-horizontal" id="inscription">
+      <form class="form-horizontal col-sm-5" id="inscription">
         <h2>Inscription : </h2>
         <div class="form-group">
-          <label for="inscr_log" class="col-sm-3 control-label">Identifiant</label>
-          <div class="col-sm-6">
+          <label for="inscr_log" class="control-label">Identifiant</label>
+          <div>
             <input id="inscr_log" type="text" class="form-control" placeholder="Identifiant">
           </div>
         </div>
 
         <div class="form-group">
-          <label for="inscr_pswrd" class="col-sm-3 control-label">Mot de passe</label>
-          <div class="col-sm-6">
+          <label for="inscr_pswrd" class=" control-label">Mot de passe</label>
+          <div>
             <input id="inscr_pswrd" type="password" class="form-control" placeholder="Mot de passe">
           </div>
         </div>
 
         <div class="form-group">
-          <div class="col-sm-offset-3 col-sm-10">
+          <div>
             <button id="sign_in" type="submit" class="btn btn-default">S'inscrire</button>
+          </div>
+        </div>
+      </form>     
+
+      <form class="form-horizontal col-sm-5" id="connection">
+        <h2>Connection : </h2>
+        <div class="form-group">
+          <label for="inscr_log" class="control-label">Identifiant</label>
+          <div>
+            <input id="cnct_log" type="text" class="form-control" placeholder="Identifiant">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="cnct_pswrd" class="control-label">Mot de passe</label>
+          <div>
+            <input id="cnct_pswrd" type="password" class="form-control" placeholder="Mot de passe">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div>
+            <button id="log_in" type="submit" class="btn btn-default">Se connecter</button>
           </div>
         </div>
       </form>

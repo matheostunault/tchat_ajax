@@ -42,3 +42,9 @@ h1 {
 #nav {
 	margin-bottom: 100px;
 }
+.container form {
+	margin:25px;
+}
+#deconnection {
+	margin: 5px 0 0 0;
+}
